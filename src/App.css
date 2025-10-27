@@ -1,38 +1,268 @@
-.App {
-  text-align: center;
+/* ================= GLOBAL ================= */
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top left, #222428, #111214 60%);
+  color: #d6d6d6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 18px;
   min-height: 100vh;
+}
+
+/* ================= LAYOUT ================= */
+.app-root {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.left-half {
+  flex: 1;
+  min-height: 720px;
+}
+
+.right-half {
+  flex: 1;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  background: linear-gradient(180deg, #2a2c30, #1b1d20);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 8px 10px 30px rgba(0, 0, 0, 0.65),
+    -6px -6px 14px rgba(255, 255, 255, 0.02);
+}
+
+.between-divider {
+  width: 80%;
+  height: 8px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.45), rgba(255, 255, 255, 0.02));
+  border-radius: 8px;
+  box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.6);
+  margin: 0 auto;
+}
+
+/* ================= COMMON LEFT ICON COLUMN ================= */
+.card-left-column {
+  width: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 105px;
+  padding-top: 6px;
 }
 
-.App-link {
-  color: #61dafb;
+.small-icon {
+  width: 28px;
+  height: 28px;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.small-icon:hover {
+  opacity: 1;
+}
+
+/* ================= TABS ================= */
+.tabs-card-inner {
+  width:720px;
+  height: 316px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.tabs-main {
+  
+  flex: 1;
+}
+
+.tabs-row {
+  background-color: #000;
+  border:none;
+  border-radius: 23px;
+  width: 614px;
+  height:62px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 20px 12px;
+}
+
+.tab-btn {
+  background: #1b1c1f;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 18px;
+  color: #d6d6d6;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left:60px
+}
+
+.tab-btn.active {
+  background: #000;
+  color: #fff;
+}
+
+.tab-btn:hover {
+  background: #25272b;
+}
+
+.tabs-underline {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  margin-bottom: 16px;
+}
+
+.tab-content {
+  font-size: 15px;
+  line-height: 1.7;
+  background: #1b1d20;
+  border-radius: 12px;
+  padding: 20px;
+  color: #ccc;
+}
+
+/* ================= GALLERY ================= */
+.gallery-card-inner {
+  width: 720px;
+  height: 330px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.gallery-main {
+  flex: 1;
+}
+
+.gallery-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.gallery-title-pill {
+  background: #1b1c1f;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.gallery-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.add-pill,
+.round-btn {
+  background: #1b1c1f;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.add-pill:hover,
+.round-btn:hover {
+  background: #2b2c2f;
+}
+
+.gallery-underline {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  margin-bottom: 14px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.gallery-item {
+  background: #121316;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.7);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1100px) {
+  .app-root {
+    flex-direction: column;
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .left-half {
+    display: none;
+  }
+
+  .right-half {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 700px) {
+  .tab-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .card-left-column {
+    width: 38px;
+  }
+
+  .small-icon {
+    width: 22px;
+    height: 22px;
   }
 }
