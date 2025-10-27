@@ -6,23 +6,18 @@ export default function Gallery() {
     "/gallery2.png",
     "/gallery3.png",
   ]);
-
   const addImage = () => {
-    // adds copy of first image (placeholder). Replace with upload logic if needed.
     setImages(prev => [...prev, "/gallery1.png"]);
   };
   return (
     <div className="gallery-card-inner">
-      {/* left tiny icon column inside gallery card */}
       <div className="card-left-column small-only">
         <img src="/question-icon.png" alt="help" className="small-icon" />
         <img src="/dashboard-icon.png" alt="dash" className="mini-grid-icon" />
       </div>
-
       <div className="gallery-main">
         <div className="gallery-top">
           <div className="gallery-title-pill">Gallery</div>
-
           <div className="gallery-actions">
             <button className="add-pill" onClick={addImage}>
               + ADD IMAGE
@@ -31,9 +26,7 @@ export default function Gallery() {
             <button className="round-btn">→</button>
           </div>
         </div>
-
         <div className="gallery-underline" />
-
         <div className="gallery-grid">
           {images.map((src, i) => (
             <div className="gallery-item" key={i}>

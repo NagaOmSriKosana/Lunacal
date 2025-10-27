@@ -2,16 +2,12 @@ import React, { useState } from "react";
 
 export default function Tabs() {
   const [activeTab, setActiveTab] = useState("about");
-
   return (
     <div className="tabs-card-inner">
-      {/* left column inside the tab card for icons */}
       <div className="card-left-column">
         <img src="/question-icon.png" alt="help" className="small-icon" />
         <img src="/dashboard-icon.png" alt="dash" className="mini-grid-icon" />
       </div>
-
-      {/* main content area */}
       <div className="tabs-main">
         <div className="tabs-row">
           <button
@@ -33,9 +29,7 @@ export default function Tabs() {
             Recommended
           </button>
         </div>
-
         <div className="tabs-underline" />
-
         <div className="tab-content" role="region" aria-live="polite">
           {activeTab === "about" && (
             <>
@@ -58,7 +52,6 @@ export default function Tabs() {
               efficiency and streamline operations with Salesforce CRM solutions.
             </p>
           )}
-
           {activeTab === "recommended" && (
             <p>
               I highly recommend exploring Salesforce Trailhead — an excellent
